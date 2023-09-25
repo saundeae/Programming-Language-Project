@@ -1,5 +1,5 @@
 # Programming Language Project
-Hello, world! This is an assignment for my programming languages class. I'm very new to github and R, so please be patient as we can learn together.
+Hello, world! This is an assignment for my programming languages class. My goal is to make an accessibly-written tutorial for people who are new to programming. I'm very new to github and R, so please be patient as we learn together.
 
 Thank you!
 
