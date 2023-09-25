@@ -12,8 +12,8 @@ R is a programming language and coding environment designed for statistical comp
 R is open-source and free on principle, making it a very accessible and popular tool in statistical education and data analytics. Perhaps its most popular and powerful trait is its community-driven nature; its utility is constantly expanded by user-created "packages" that are easy to install and use for an extremely adaptable experience. That's not to say that it only finds usage in independent academics and researchers though -- R is reported to be used for the collection and processing of user data for giants like Amazon, Meta, and Google. It's also used by the FDA and National Weather Service to create models and visualize data for the public.
 
 ### R Resources (R-esources?)
-[The R Foundation](https://www.r-project.org/foundation/) 
-[RStudio (Currently being renovated)](https://www.rstudio.com) 
+[The R Foundation](https://www.r-project.org/foundation/), 
+[RStudio (Currently being renovated)](https://www.rstudio.com), and 
 [Book Recommendations By RStudio](https://www.rstudio.com/resources/books/)
 
 ### Downloading and Using R
