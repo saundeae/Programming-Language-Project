@@ -84,7 +84,7 @@ As a math-based language, it's important to know the artithmetic operators in R:
 - Division (returns the remainder): %%
 - Integer division: %/%
 
-Notably, assignment operations in R are written as <variable <- value> rather than a single equal sign.
+Notably, assignment operations in R are written as ```variable <- value``` rather than a single equal sign.
 
 There are also logical operators and comparisons:
 - Equal-to: ==
