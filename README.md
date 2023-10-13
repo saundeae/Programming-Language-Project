@@ -32,13 +32,70 @@ print("Hello, World!")
 Unfortunately, R does not currently support multi-line commenting, but single-line commenting is allowed and a keyboard command makes commenting out larger sections easy. Use "#" to comment out a single line like so:
 
 ```
-#Anything I write here is for humans to read!
+#Anything I write here is for humans to read
 print("This is a sample line of code") #And over here
-#And over here too!
+#And over here too
 
 # And all these lines
 # are "commented out"
 # as well :)
 ```
 
-For multi-line comments (for example, a block of code you want to temporarily hide from your program), highlight the section and use the command "ctrl + shift + c"
+For multi-line comments (for example, a block of code you want to temporarily remove from your program), highlight the section and use the command "ctrl + shift + c"
+
+## PLP 2 - Data Types and Naming Conventions
+
+### Naming conventions
+
+In R, "snake_case," "camelCase," and "dot.case" are all valid naming conventions. Typically, snake case and camel case are preferred to avoid confusion with object-oriented programming languages. Additionally, when naming functions, the first letter is capitalized to distinguish them from variables.
+
+Variables should not start with an underscore, a dot, or a number.
+
+Reserve words in R include TRUE, FALSE, NULL, NA, NaN, Inf, if, else, repeat, while, for, in, function, next, break, NA_character_, NA_integer_, NA_real_, NA_complex_, and ellipses (...).
+
+### Variable typing
+
+R is an implicitly typed language, meaning that a variable's type does not have to be immediately declared. It is dynamically typed, meaning that the program only "knows" the variable type once the program is run. And given its nature as a statistics-based language, it is weakly typed, meaning that it will generally accommodate the programmer's wishes when asked to execute operations between data types (ie. a float and an integer).
+
+### Types of variables
+- Strings: Essentially, text variables. Written in quotes.
+- Numerics: Variables that are numbers, including integers (which are exclusively whole numbers, written with a capital L immediately following the value) and floats (variables that are numbers that either have decimal points or may have them later, no special notation needed)
+- Lists: A list of variables (of any type) that are stored together. Written in parentheses and separated by commas
+- Boolean values: Variables used for logical operations: TRUE and FALSE
+- Hashes: Similar to a list, but each item has a corresponding item attached to it. This data type is often called a "dictionary" in other languages due to its "key/definition" structure.
+
+All types listed here have interactive examples in the Rmd (R Markdown) file called PLP2.Rmd
+
+### Variable interactions
+
+Since R is a weakly typed language, it does offer more possibilities for interactions between variables than other languages. For example, integers and floats can interact without being converted. You can also combine variable types in a single list (Examples of all in PLP2.Rmd)
+
+However, R will not allow operations between numbers in string format (for example: "1" as opposed to 1 or 1L)
+
+### Operations
+
+As a math-based language, it's important to know the artithmetic operators in R:
+
+- Addition: +
+- Subtraction: -
+- Multiplication: *
+- Division: /
+- Exponents: ^
+- Division (returns the remainder): %%
+- Integer division: %/%
+
+Notably, assignment operations in R are written as variable <- value rather than a single equal sign.
+
+There are also logical operators and comparisons:
+- Equal-to: ==
+- Not-equal-to: !=
+- Less-than: <
+- Greater-than: >
+- Less-than or equal-to: <=
+- Greater-than or equal-to: >=
+- AND (both are TRUE): &
+- OR (at least one is TRUE): |
+
+(Interactive examples of all in PLP2.Rmd)
+
+
