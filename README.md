@@ -22,7 +22,7 @@ R can be downloaded from [r-project.org](https://cran.r-project.org/mirrors.html
 ### Hello, World!
 Time for the time-honored programming tradition of the "Hello, World!" code! Lucky for us, this one's simple. With your IDE of choice, use a print statement:
 
-```
+```R
 print("Hello, World!")
 ```
 
@@ -110,3 +110,4 @@ Whether a language is "pass-by-reference" or "pass-by-value" determines what hap
 ### Scope
 R is a statically scoped language, meaning that when it encounters "free," unassigned variables, it searches within the smallest possible environment first and then expands its search outward. For example, if the variable <x> is called in function ```function1```, which resides in the function ```main```, R would first search for ```x``` in ```function1```, then ```main```, then through the "search" list. This list always begins with the global environment (the space outside all of your functions), is followed by any packages that you've loaded into your program, and ends with the "base" R code. This order can be modified and may be relevant if there are objects with the same name in different packages.
 
+## PLP4 - Selection, Loops, and Conditionals
