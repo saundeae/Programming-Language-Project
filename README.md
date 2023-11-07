@@ -107,6 +107,9 @@ The syntax to declare a function is <yourFunctionName <- function(parameters) {d
 ### Pass-by-reference or pass-by-value?
 Whether a language is "pass-by-reference" or "pass-by-value" determines what happens when you assign a variable to another variable. Depending on the language's design, it may copy the value of the old variable into the new one (pass-by-value) or it may create the new variable as an alias of the old variable that will reflect any changes that occur to it (pass-by-reference). We can tell which protocol a language uses by assigning an old variable to a new variable, changing the value of the old variable, and then checking the value of the new variable. If the new value changed with the old variable, the language is pass-by-reference. If the new variable holds the value that the old variable initially started with, it is pass-by-value. As you can see in the PLP3.Rmd example "new/old", R is a pass-by-value language.
 
+### Scope
+R is a statically scoped language, meaning that when it encounters "free," unassigned variables, it searches within the smallest possible environment first and then expands its search outward. For example, if the variable <x> is called in function <function1>, which resides in the function <main>, R would first search for <x> in <function1>, then <main>, then through the "search" list. This list always begins with the global environment (the space outside all of your functions), is followed by any packages that you've loaded into your program, and ends with the "base" R code. This order can be modified and may be relevant if there are objects with the same name in different packages.
 
+##PLP 4 - Selections, Loops, and Conditions
 
 
