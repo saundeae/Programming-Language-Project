@@ -31,7 +31,7 @@ print("Hello, World!")
 
 Unfortunately, R does not currently support multi-line commenting, but single-line commenting is allowed and a keyboard command makes commenting out larger sections easy. Use "#" to comment out a single line like so:
 
-```
+```R
 #Anything I write here is for humans to read
 print("This is a sample line of code") #And over here
 #And over here too
