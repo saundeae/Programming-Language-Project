@@ -99,3 +99,14 @@ There are also logical operators and comparisons:
 (Interactive examples of all in PLP2.Rmd)
 
 
+## PLP 3 - Functions
+
+### Declaring a function in R
+The syntax to declare a function is <yourFunctionName <- function(parameters) {definition}>. Functions must be declared before (above) they are called in the code. R does not allow functions to return more than one value, but it does support the ability to pass multiple parameters of different types into a function (PLP3.Rmd: multitype). It also allows recursive (self-calling) functions (PLP3.Rmd: factfunct).
+
+### Pass-by-reference or pass-by-value?
+Whether a language is "pass-by-reference" or "pass-by-value" determines what happens when you assign a variable to another variable. Depending on the language's design, it may copy the value of the old variable into the new one (pass-by-value) or it may create the new variable as an alias of the old variable that will reflect any changes that occur to it (pass-by-reference). We can tell which protocol a language uses by assigning an old variable to a new variable, changing the value of the old variable, and then checking the value of the new variable. If the new value changed with the old variable, the language is pass-by-reference. If the new variable holds the value that the old variable initially started with, it is pass-by-value. As you can see in the PLP3.Rmd example "new/old", R is a pass-by-value language.
+
+
+
+
