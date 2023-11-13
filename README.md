@@ -29,7 +29,7 @@ print("Hello, World!")
 ### Comments in R
 "Commenting" in programming is the act of writing "human-friendly" text within code to clarify things for non-computer audiences. This text is ignored by the computer when your program is run.
 
-Unfortunately, R does not currently support multi-line commenting, but single-line commenting is allowed and a keyboard command makes commenting out larger sections easy. Use "#" to comment out a single line like so:
+Unfortunately, R does not currently support multi-line commenting, but single-line commenting is allowed and a keyboard command makes commenting out larger sections easy. Use ```#``` to comment out a single line like so:
 
 ```R
 #Anything I write here is for humans to read
@@ -41,7 +41,7 @@ print("This is a sample line of code") #And over here
 # as well :)
 ```
 
-For multi-line comments (for example, a block of code you want to temporarily remove from your program), highlight the section and use the command "ctrl + shift + c"
+For multi-line comments (for example, a block of code you want to temporarily remove from your program), highlight the section and use the command ```ctrl``` + ```shift``` + ```c```
 
 ## PLP 2 - Data Types and Naming Conventions
 
@@ -64,7 +64,7 @@ R is an implicitly typed language, meaning that a variable's type does not have 
 - Boolean values: Variables used for logical operations: TRUE and FALSE
 - Hashes: Similar to a list, but each item has a corresponding item attached to it. This data type is often called a "dictionary" in other languages due to its "key/definition" structure.
 
-All types listed here have interactive examples in the Rmd (R Markdown) file called PLP2.Rmd
+All types listed here have interactive examples in the Rmd (R Markdown) file PLP2.Rmd.
 
 ### Variable interactions
 
@@ -84,20 +84,21 @@ As a math-based language, it's important to know the artithmetic operators in R:
 - Division (returns the remainder): %%
 - Integer division: %/%
 
-Notably, assignment operations in R are written as ```variable <- value``` rather than a single equal sign.
+Notably, assignment operations in R are typically written as ```variable <- value``` or ```value -> variable``` rather than a single equal sign.
 
 There are also logical operators and comparisons:
-- Equal-to: ==
-- Not-equal-to: !=
-- Less-than: <
-- Greater-than: >
-- Less-than or equal-to: <=
-- Greater-than or equal-to: >=
-- AND (both are TRUE): &
-- OR (at least one is TRUE): |
+- Equal-to: ```==```
+- Not-equal-to: ```!=```
+- Less-than: ```<```
+- Greater-than: ```>```
+- Less-than or equal-to: ```<=```
+- Greater-than or equal-to: ```>=```
+- AND (both are TRUE): ```&```
+- OR (at least one is TRUE): ```|```
 
 (Interactive examples of all in PLP2.Rmd)
 
+(P.S.: R has secret extra symbols for AND and OR -- see the README section "Short circuiting" for more info)
 
 ## PLP 3 - Functions
 
@@ -111,3 +112,64 @@ Whether a language is "pass-by-reference" or "pass-by-value" determines what hap
 R is a statically scoped language, meaning that when it encounters "free," unassigned variables, it searches within the smallest possible environment first and then expands its search outward. For example, if the variable <x> is called in function ```function1```, which resides in the function ```main```, R would first search for ```x``` in ```function1```, then ```main```, then through the "search" list. This list always begins with the global environment (the space outside all of your functions), is followed by any packages that you've loaded into your program, and ends with the "base" R code. This order can be modified and may be relevant if there are objects with the same name in different packages.
 
 ## PLP4 - Selection, Loops, and Conditionals
+
+### Boolean values & condition statements
+R's boolean values are ```TRUE``` and ```FALSE```. Its conditional statements are ```if```, ```else if```, and ```else```, which are written as follows:
+
+```
+if(condition 1){
+  action 1
+} else if(condition 2) {
+  action 2
+} else {
+  action 3
+}
+```
+
+The braces and ```else if``` option prevent the "dangling else" ambuguity, in which consecutive "if" statements are followed by an "else" and the program must decide which "if" statement it belongs to.
+
+### Short circuiting
+Short circuiting allows a program to take "shortcuts" in certain cases of logical condition statements. For example, given that ```T``` is TRUE and ```F``` is FALSE:
+
+In the case of ```if(T OR F)```: a program only needs one of the two statements to be TRUE in order to proceed. Since the first item is TRUE, it doesn't matter what the second item is; the condition for the OR statement has been met. If a language uses short circuit logic, the program would skip over the second item and go straight to the designated code block. **This statement short circuits.**
+
+In the case of ```if(F OR T)```: the program needs to see that the second item is TRUE in order for the condition to be met. **This statement does not short circuit.**
+
+In the case of ```if(F AND T)```: the program needs both items to be TRUE in order to proceed. Since it can tell from the first item that this cannot be the case, it will skip over the second item and not execute the designated code block. **This statement short circuits.**
+
+In the case of ```if(T AND F)```: the program needs to see that the second item is FALSE before it can know that the condition is not met. **This statement does not short circuit.**
+
+In R, we get extra versions of the logical operators that indicate AND and OR -- whereas ```&``` and ```|``` do NOT allow short circuiting, the logical operators ```&&``` and ```||``` do! You can see the difference (and the potential consequences) of using one set or the other in the stopIt example in PLP4.Rmd.
+
+### Switch
+The "switch" function in R allows you to evaluate an expression against any number of "cases" and choose the appropriate path. It takes in an expression, cases, and sometimes an optional default case. 
+
+The first type of switch statement has a string as its expression. Its syntax is as follows:
+
+```
+expression <- "string2"
+
+switch(expression,
+      "string1" = "case1",
+      "string2" = "case2,
+      "string3" = "case3,
+      "default case") # The default case is optional. If not specified, an unmatched expression will return NULL
+
+# The program will proceed with action2. If the expression was, for example, "string4", it would proceed with defaultAction.
+```
+
+The second type has an integer as its expression. It does not allow for the option of a default case. It will proceed with the case that has the index of the expression integer. Example:
+
+```
+expression <- 1
+
+switch(expression,
+      "case1",
+      "case2",
+      "case3",
+      "case4")
+
+# The program will proceed with "case1" -- remember, R starts counting at 1!
+```
+
+Interactive examples: switchboard and switchnum in PLP4.Rmd
