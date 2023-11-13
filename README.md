@@ -38,7 +38,7 @@ print("This is a sample line of code") #And over here
 
 # And all these lines
 # are "commented out"
-# as well :)
+# as well
 ```
 
 For multi-line comments (for example, a block of code you want to temporarily remove from your program), highlight the section and use the command ```ctrl``` + ```shift``` + ```c```
@@ -76,13 +76,13 @@ However, R will not allow operations between numbers in string format (for examp
 
 As a math-based language, it's important to know the artithmetic operators in R:
 
-- Addition: +
-- Subtraction: -
-- Multiplication: *
-- Division: /
-- Exponents: ^
-- Division (returns the remainder): %%
-- Integer division: %/%
+- Addition: ```+```
+- Subtraction: ```-```
+- Multiplication: ```*```
+- Division: ```/```
+- Exponents: ```^```
+- Division (returns the remainder): ```%%```
+- Integer division: ```%/%```
 
 Notably, assignment operations in R are typically written as ```variable <- value``` or ```value -> variable``` rather than a single equal sign.
 
