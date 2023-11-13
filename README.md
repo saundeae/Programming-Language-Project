@@ -17,7 +17,7 @@ R is open-source and free on principle, making it a very accessible and popular 
 [Book Recommendations By RStudio](https://www.rstudio.com/resources/books/)
 
 ### Downloading and Using R
-R can be downloaded from [r-project.org](https://cran.r-project.org/mirrors.html), and its signature desktop IDE (Integrated Development Environment -- essentially, the place where you write and run code), RStudio, can be downloaded from [rstudio.com](https://posit.co/download/rstudio-desktop/). The IDE is also available as an online application called [RStudio Cloud](https://posit.cloud/plans). For the purposes of this project, I will be using VSCode as my IDE (tutorial by VSCode [here](https://code.visualstudio.com/docs/languages/r)). **All of this software is available for free!**
+R can be downloaded from [r-project.org](https://cran.r-project.org/mirrors.html), and its signature desktop IDE (Integrated Development Environment -- essentially, the place where you write and run code), RStudio, can be downloaded from [rstudio.com](https://posit.co/download/rstudio-desktop/), or used as an online application called [RStudio Cloud](https://posit.cloud/plans). It is also supported by VSCode (tutorial by VSCode [here](https://code.visualstudio.com/docs/languages/r)). **All of this software is available for free!**
 
 ### Hello, World!
 Time for the time-honored programming tradition of the "Hello, World!" code! Lucky for us, this one's simple. With your IDE of choice, use a print statement:
