@@ -111,7 +111,7 @@ Whether a language is "pass-by-reference" or "pass-by-value" determines what hap
 ### Scope
 R is a statically scoped language, meaning that when it encounters "free," unassigned variables, it searches within the smallest possible environment first and then expands its search outward. For example, if the variable <x> is called in function ```function1```, which resides in the function ```main```, R would first search for ```x``` in ```function1```, then ```main```, then through the "search" list. This list always begins with the global environment (the space outside all of your functions), is followed by any packages that you've loaded into your program, and ends with the "base" R code. This order can be modified and may be relevant if there are objects with the same name in different packages.
 
-## PLP4 - Selection, Loops, and Conditionals
+## PLP 4 - Selection, Loops, and Conditionals
 
 ### Boolean values & condition statements
 R's boolean values are ```TRUE``` and ```FALSE```. Its conditional statements are ```if```, ```else if```, and ```else```, which are written as follows:
@@ -126,7 +126,7 @@ if(condition 1){
 }
 ```
 
-The braces and ```else if``` option prevent the "dangling else" ambuguity, in which consecutive "if" statements are followed by an "else" and the program must decide which "if" statement it belongs to.
+The braces and ```else if``` option help to prevent the "dangling else" ambuguity, in which consecutive "if" statements are followed by an "else" and the program must decide which "if" statement it belongs to.
 
 ### Short circuiting
 Short circuiting allows a program to take "shortcuts" in certain cases of logical condition statements. For example, given that ```T``` is TRUE and ```F``` is FALSE:
