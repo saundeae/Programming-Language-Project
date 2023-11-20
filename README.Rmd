@@ -1,9 +1,6 @@
 ---
 title: "Programming Language Project"
-output: 
-  html_document:
-    toc: TRUE
-    theme: cerulean
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
