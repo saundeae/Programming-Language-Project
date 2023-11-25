@@ -629,7 +629,7 @@ Leave it to R, the program with five different assignment operators, to
 have three types of classes. These types are S3, S4, and reference
 classes.
 
-### S3
+#### S3
 
 S3 is the simplest, least strict, and most commonly used type of class
 in R. Its objects hold their attributes in specially-structured lists.
@@ -691,7 +691,7 @@ print(cat2)
 
 This print function will only affect objects in the class “Cats”.
 
-### S4
+#### S4
 
 An S4 class also stores its objects’ attributes in lists, but it has a
 formalized structure for creating classes and objects.
@@ -713,7 +713,7 @@ dog1 = new("Dogs", name="Louie", age=13, type="good boy")
 dog2 = new("Dogs", name="Goose", age=11, type="silly goose")
 ```
 
-### Reference Classes
+#### Reference Classes
 
 This is the system that will be most familiar to object-oriented
 programmers. Its methods belong to the class itself rather than generic
