@@ -8,7 +8,7 @@ learn together.
 
 Thank you!
 
-## PLP I - Getting Started
+## PLP 1 - Getting Started
 
 ### A Brief History
 
@@ -261,7 +261,7 @@ print(2)
 
 ### Operations
 
-As a math-based language, it’s important to know the artithmetic
+As a math-based language, it’s important to know the arithmetic
 operators in R:
 
 - Addition: `+`
@@ -606,4 +606,231 @@ exp <- 5
 
 print(switchnum(exp))
 --- NULL
+```
+
+## PLP 5 - Classes and Inheritance
+
+If you’re coming to R from python, you might be curious about the
+potential for object-oriented programming in R. It’s possible!
+
+“Objects” are like variables that can hold multiple attributes, for
+example, a “student” object that holds a first name string, last name
+string, and a student ID number. Objects belong to “classes” that
+contain “methods,” which are functions that can be used on its objects.
+If you’re new to this, I recommend trying out the examples before trying
+to understand it perfectly. It makes more sense once you get started!
+The “reference class” example is most similar to what you might see in
+other languages, so don’t be afraid to start there, especially if you’ve
+got python or java experience.
+
+### Classes in R
+
+Leave it to R, the program with five different assignment operators, to
+have three types of classes. These types are S3, S4, and reference
+classes.
+
+### S3
+
+S3 is the simplest, least strict, and most commonly used type of class
+in R. Its objects hold their attributes in specially-structured lists.
+
+Syntax:
+
+    # Not actual R code!
+
+    objectName = list(attribute1=value1, attribute2=value2, attributeN=valueN)
+
+    class(objectName) <- "ClassName"
+
+Example:
+
+``` r
+cat1 = list(name="Claire", age=7, type="domestic shorthair")
+cat2 = list(name="Francis", age=7, type="silly little guy")
+
+class(cat1) <- "Cats"
+class(cat2) <- "Cats"
+```
+
+As an example of S3 methods, lets write a function that prints a “Cats”
+object nicely. Right now, printing a “Cats” object would return this:
+
+``` r
+print(cat1)
+--- $name
+--- [1] "Claire"
+--- 
+--- $age
+--- [1] 7
+--- 
+--- $type
+--- [1] "domestic shorthair"
+--- 
+--- attr(,"class")
+--- [1] "Cats"
+```
+
+We can give R a “Cats” class-specific version of the generic print
+function that returns its attributes in a more readable format like so:
+
+``` r
+# To access an S3 object's attributes, use objectName$attribute
+
+print.Cats <- function(objcat) {
+  cat(objcat$name, "\n")
+  cat(objcat$age, "year-old", objcat$type, "\n")
+}
+
+print(cat1)
+--- Claire 
+--- 7 year-old domestic shorthair
+print(cat2)
+--- Francis 
+--- 7 year-old silly little guy
+```
+
+This print function will only affect objects in the class “Cats”.
+
+### S4
+
+An S4 class also stores its objects’ attributes in lists, but it has a
+formalized structure for creating classes and objects.
+
+Syntax:
+
+    # Not actual R code!
+
+    setClass("ClassName", slots=list(attribute1=valueType, attribute2=valueType, attributeN=valueType))
+
+    objectName = new("ClassName", attribute1=value1, attribute2=value2, attributeN=valueN)
+
+Example:
+
+``` r
+setClass("Dogs", slots=list(name="character", age="numeric", type="character"))
+
+dog1 = new("Dogs", name="Louie", age=13, type="good boy")
+dog2 = new("Dogs", name="Goose", age=11, type="silly goose")
+```
+
+### Reference Classes
+
+This is the system that will be most familiar to object-oriented
+programmers. Its methods belong to the class itself rather than generic
+functions.
+
+Syntax:
+
+    # Not actual R code!
+
+    setRefClass("ClassName", fields=list(attribute1=valueType, attribute2=valueType, attributeN=valueType), methods=list(definitions))
+
+    objectName <- ClassName(attribute1=value1, attribute2=value2, attributeN=valueN)
+
+Example:
+
+``` r
+Chickens <- setRefClass("Chickens", 
+                        fields=list(name="character", age="numeric", type="character"),
+                        methods=list(
+                          birthday = function(){
+                            age <<- (age + 1)
+                            cat("happy birthday!", name, "is now", age, "\n")
+                          }
+                        ))
+
+chicken1 <- Chickens(name="Gwen", age=5, type="porcelain duccles")
+chicken2 <- Chickens(name="Inari", age=3, type="easter egger")
+chicken3 <- Chickens(name="Paprika", age=3, type="buff brahma bantam")
+chicken4 <- Chickens(name="Chichi", age=3, type="easter egger")
+```
+
+``` r
+print(chicken3$age)
+--- [1] 3
+chicken3$birthday()
+--- happy birthday! Paprika is now 4
+print(chicken3$age)
+--- [1] 4
+```
+
+### Inheritance
+
+Classes can be connected through inheritance, in which a “parent” class
+is extended by a “child” class that has all the same attributes and
+methods but adds some of its own. Let’s say there’s an airport keeping
+track of its employees’ information. All employees have an ID, a first
+name, and a last name. Pilots also have a pilot license number. We could
+use an “employees” class to store employee IDs and names that is
+extended by a “pilots” class to store pilot license numbers.
+
+#### S3
+
+Syntax:
+
+    # Not actual R code!
+
+    class(object) <- c("ChildClassName", "ParentClassName")
+
+Example:
+
+``` r
+e1s3 <- list(firstName="Abby", lastName="Andrews", id=1)
+e2s3 <- list(firstName="Belinda", lastName="Brooks", id=2)
+p1s3 <- list(firstName="Ciara", lastName="Clark", id=3, licenseNum=100)
+
+class(e1s3) <- "EmployeesS3"
+class(e2s3) <- "EmployeesS3"
+class(p1s3) <- c("EmployeesS3", "PilotsS3")
+```
+
+#### S4
+
+Syntax:
+
+    #Not actual R code!
+
+    setClass("ChildClassName",
+      slots=list(childClassAttributes)),
+      contains="ParentClassName")
+
+Example:
+
+``` r
+setClass("EmployeesS4", 
+         slots=list(firstName="character", lastName="character", id="numeric"))
+
+setClass("PilotsS4",
+         slots=list(licenseNum="numeric"),
+         contains="EmployeesS4")
+
+e1s4 <- new("EmployeesS4",
+          firstName="Alex", lastName="Adams", id=10)
+e2s4 <- new("EmployeesS4",
+          firstName="Bailey", lastName="Brown", id=11)
+p1s4 <- new("PilotsS4",
+          firstName="Cassandra", lastName="Castillo", id=12, licenseNum=101)
+```
+
+#### Reference Classes
+
+Syntax:
+
+    ChildClassName <- setRefClass("ChildClassName",
+      fields=list(childClassAttributes),
+      contains="ParentClassName")
+
+Example:
+
+``` r
+EmployeesRC <- setRefClass("EmployeesRC",
+                        fields=list(firstName="character", lastName="character", id="numeric"))
+
+PilotsRC <- setRefClass("PilotsRC",
+                      fields=list(licenseNum="numeric"),
+                      contains="EmployeesRC")
+
+e1RC <- EmployeesRC(firstName="Alessandra", lastName="Alvarez", id=201)
+e2RC <- EmployeesRC(firstName="Bernard", lastName="Baker", id=202)
+p1RC <- PilotsRC(firstName="Catherine", lastName="Collins", id=203, licenseNum=102)
 ```
