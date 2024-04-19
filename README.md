@@ -3,10 +3,7 @@ Programming Language Project
 
 This is an assignment for my programming languages class. My goal is to
 make an accessibly-written tutorial for people who are new to
-programming. I’m very new to github and R, so please be patient as we
-learn together.
-
-Thank you!
+programming. Thanks for reading!
 
 ## PLP 1 - Getting Started
 
@@ -30,7 +27,7 @@ popular tool in statistical education and data analytics. Perhaps its
 most popular and powerful trait is its community-driven nature; its
 utility is constantly expanded by user-created “packages” that are easy
 to install and use for an extremely adaptable experience. That’s not to
-say that it only finds usage in independent academics and researchers
+say that it only finds usage in independent academics and research
 though – R is reported to be used for the collection and processing of
 user data for giants like Amazon, Meta, and Google. It’s also used by
 the FDA and National Weather Service to create models and visualize data
@@ -104,7 +101,8 @@ Variables should not start with an underscore, a dot, or a number.
 
 Reserve words in R include TRUE, FALSE, NULL, NA, NaN, Inf, if, else,
 repeat, while, for, in, function, next, break, NA_character\_,
-NA_integer\_, NA_real\_, NA_complex\_, and ellipses (…).
+NA_integer\_, NA_real\_, NA_complex\_, and ellipses (…). You will not 
+be able to name variables using any of these words.
 
 ### Variable typing
 
@@ -138,8 +136,8 @@ Examples:
 ``` r
 ## Strings
 
-string <- "string"
-print(string)
+str <- "string"
+print(str)
 --- [1] "string"
 ```
 
@@ -276,10 +274,14 @@ Notably, assignment operations in R are typically written as
 `variable <- value` or `value -> variable` rather than a single equal
 sign.
 
-There are also logical operators and comparisons: - Equal-to: `==` -
-Not-equal-to: `!=` - Less-than: `<` - Greater-than: `>` - Less-than or
-equal-to: `<=` - Greater-than or equal-to: `>=` - AND (both are TRUE):
-`&` - OR (at least one is TRUE): `|`
+There are also logical operators and comparisons: 
+- Equal-to: `==`
+- Not-equal-to: `!=`
+- Less-than: `<` - Greater-than: `>`
+- Less-than or equal-to: `<=`
+- Greater-than or equal-to: `>=`
+- AND (both are TRUE): `&`
+- OR (at least one is TRUE): `|`
 
 (P.S.: R has secret extra symbols for AND and OR – see the README
 section “Short circuiting” for more info)
